@@ -67,9 +67,24 @@ public class Main implements ActionListener  {
 		}
 		
 		for(int i=0;i<10;i++) {
-			numberButtons[i] = new JButton();
+			numberButtons[i] = new JButton(String.valueOf(i));
+			numberButtons[i].addActionListener(this);
+			numberButtons[i].setFont(myFont);
+			numberButtons[i].setFocusable(false);
+			
 		}
 		
+		delButton.setBounds(50,330,145,39);
+		crlButton.setBounds(50,430,145,69);
+		
+		panel = new JPanel();
+		panel.setBounds(205,430,145,50);
+		panel.setLayout(new GridLayout(4,4,10,10));
+		panel.setBackground(Color.gray);
+		
+		frame.add(panel);
+		frame.add(delButton);
+		frame.add(crlButton);	
 		frame.add(textField);
 		frame.setVisible(true);
 		
