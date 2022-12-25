@@ -33,11 +33,11 @@ public class Main implements ActionListener  {
 		
 		frame = new JFrame("DiegoDEV");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(400, 500);
+		frame.setSize(420, 550);
 		frame.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(50,30, 300, 40);
+		textField.setBounds(50,25, 300, 50);
 		textField.setFont(myFont);
 		textField.setEditable(false);
 		
@@ -74,13 +74,30 @@ public class Main implements ActionListener  {
 			
 		}
 		
-		delButton.setBounds(50,330,145,39);
-		crlButton.setBounds(50,430,145,69);
+		delButton.setBounds(50,430,145,50);
+		crlButton.setBounds(205,430,145,50);
 		
 		panel = new JPanel();
-		panel.setBounds(205,430,145,50);
+		panel.setBounds(50,100,300,300);
 		panel.setLayout(new GridLayout(4,4,10,10));
-		panel.setBackground(Color.gray);
+//		panel.setBackground(Color.gray);
+		
+		panel.add(numberButtons[1]);
+		panel.add(numberButtons[2]);
+		panel.add(numberButtons[3]);
+		panel.add(addButton);
+		panel.add(numberButtons[4]);
+		panel.add(numberButtons[5]);
+		panel.add(numberButtons[6]);
+		panel.add(subButton);
+		panel.add(numberButtons[7]);
+		panel.add(numberButtons[8]);
+		panel.add(numberButtons[9]);
+		panel.add(mulButton);
+		panel.add(decButton);
+		panel.add(numberButtons[0]);
+		panel.add(equButton);
+		panel.add(divButton);
 		
 		frame.add(panel);
 		frame.add(delButton);
@@ -93,16 +110,24 @@ public class Main implements ActionListener  {
 	
 	
 	public static void main(String[] args) {
-	
-
 		Main calculadora = new Main();
 		
 		
 	}
-
+	
 	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		
+		for(int i=0;i<10;i++) {
+			if(e.getSource() == numberButtons[i]) {
+				textField.setText(textField.getText().concat(String.valueOf(i)));
+			}
+		}
+		
+		if(e.getSource() == decButton) {
+			textField.setText(textField.getText().concat("."));
+		}
 	}
-
+	
 }
